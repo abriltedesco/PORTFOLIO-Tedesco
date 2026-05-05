@@ -1,38 +1,51 @@
-function crearTextoCurvo() {
-    const textElement = document.getElementById('textoCurvo');
-    if (!textElement) return;
+document.addEventListener("DOMContentLoaded", () => {
+    iniciarCarousel();
+});
 
-    // Guardamos la palabra "PORTFOLIO" original para poder redibujarla al cambiar tamaño de pantalla
-    if (!textElement.dataset.textoOriginal) {
-        textElement.dataset.textoOriginal = textElement.innerText;
+function iniciarCarousel() {
+    const track = document.getElementById("carousel-track");
+    const btnPrev = document.getElementById("btn-prev");
+    const btnNext = document.getElementById("btn-next");
+    if (!track || !btnPrev || !btnNext) return;
+
+    const cards = track.querySelectorAll(".cardProyecto");
+    const total = cards.length;
+    const GAP = 20; // debe coincidir con gap del CSS en .carousel-track
+    let indiceActual = 0;
+
+    function visiblesAhora() {
+        return window.innerWidth >= 768 ? 2 : 1;
     }
 
-    const text = textElement.dataset.textoOriginal;
-    textElement.innerHTML = ''; // Vaciamos para crear los spans
+    function moverCarousel() {
+        const visibles = visiblesAhora();
+        const maxIndice = Math.max(0, total - visibles);
 
-    // Definimos el radio según el tamaño de la pantalla (haciendo match con el CSS)
-    let radius = 130; // Mobile
-    if (window.innerWidth >= 768) radius = 190; // Tablet
-    if (window.innerWidth >= 1200) radius = 280; // Desktop
+        if (indiceActual > maxIndice) indiceActual = maxIndice;
 
-    for (let i = 0; i < text.length; i++) {
-        const span = document.createElement('span');
-        span.innerText = text[i];
-        
-        // Lo posicionamos absoluto en el centro
-        span.style.position = 'absolute';
-        span.style.left = '50%';
-        span.style.bottom = '50%';
-        span.style.transformOrigin = `0 ${radius}px`;
+        const cardWidth = cards[0].offsetWidth;
+        const desplazamiento = indiceActual * (cardWidth + GAP);
+        track.style.transform = `translateX(-${desplazamiento}px)`;
 
-        // Calculamos el ángulo para formar un medio círculo por encima
-        const angle = -70 + (140 / (text.length - 1)) * i;
-        
-        // Se traslada hacia arriba y se rota
-        span.style.transform = `translateX(-50%) rotate(${angle}deg) translateY(-${radius}px)`;
-        
-        textElement.appendChild(span);
+        btnPrev.style.opacity = indiceActual === 0 ? "0.3" : "1";
+        btnNext.style.opacity = indiceActual >= maxIndice ? "0.3" : "1";
     }
+
+    btnNext.addEventListener("click", () => {
+        const maxIndice = Math.max(0, total - visiblesAhora());
+        if (indiceActual < maxIndice) {
+            indiceActual++;
+            moverCarousel();
+        }
+    });
+
+    btnPrev.addEventListener("click", () => {
+        if (indiceActual > 0) {
+            indiceActual--;
+            moverCarousel();
+        }
+    });
+
+    window.addEventListener("resize", moverCarousel);
+    moverCarousel(); // estado inicial
 }
-
-window.addEventListener('resize', crearTextoCurvo);

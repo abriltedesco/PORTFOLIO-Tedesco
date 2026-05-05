@@ -1,14 +1,22 @@
 :root {
-    --fondo: #f5f0eb;
+    --fondo: #000000;
     --azulOscuro: #1a1a2e;
+    --colorFooter : #17052c;
     --violetaClaro: #9b7fc7;
     --violetaOscuro: #6b4f8a;
     --celesteClaro: #8fcfdf;
     --celesteFuerte: #2a8fa8;
     --blanco: #ffffff;
-    --texto: #2c2c3e;
-    --textoClaro: #555570;
 
+    --padding-y-cel : 30px;
+    --padding-x-cel : 20px;
+    --padding-y-pc : 50px;
+    --padding-x-pc: 30px;
+
+    --cardRadius: 20px;
+
+    --texto: #2c2c3e;
+    --textoClaro: #e5e2e9 ;
     --fuente1: 'Syne', sans-serif;
     --fuenteCuerpo: 'DM Sans', sans-serif;
 }
@@ -43,7 +51,6 @@ img {
     position: relative;
     width: 100%;
     height: 100svh;
-    background-color: #000;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -98,37 +105,30 @@ img {
     z-index: 5;
 }
 
-.textoCurvo {
+.textoFondo {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -55%);
-    width: 85vw;
+    transform: translate(-50%, -50%);
+    z-index: 1;
     pointer-events: none;
-    z-index: 2;
-}
-
-.textoCurvo-svg {
-    width: 100%;
-    overflow: visible;
-}
-
-.textoCurvo {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-    pointer-events: none;
-    z-index: 2;
-    font-size: 36px; /* Tamaño fijo en vez de vw */
+    user-select: none;
+    font-family: var(--fuente1);
     font-weight: 800;
-    color: var(--blanco);
-    letter-spacing: 2px;
+    color: rgba(255, 255, 255, 0.07);
+    font-size: 26vw;
+    text-align: center;
+    line-height: 0.9;
+    letter-spacing: -1px;
+}
+
+/* oculta salto de línea a partir de 600px para q sea vea en una sola línea */
+.break-fondo {
+    display: block;
 }
 
 .profile-img {
     display: block;
-    height: 50vh;
     width: auto;
     object-fit: cover;
     object-position: top;
@@ -140,7 +140,7 @@ img {
 #aboutMe {
     display: flex;
     flex-direction: column;
-    padding: var(--padding-y) var(--padding-x);
+    padding: var(--padding-y-cel) var(--padding-x-cel);
     gap: 20px;
     background-color: var(--fondo);
 }
@@ -153,7 +153,7 @@ img {
     font-family: var(--fuente1);
     font-size: 1.6rem;
     font-weight: 800;
-    color: var(--azulOscuro);
+    color: var(--celesteFuerte);
     margin-bottom: 10px;
 }
 
@@ -170,16 +170,294 @@ img {
     gap: 12px;
 }
 
-.image-placeholder {
+
+.education {
+    background-color: var(--azulOscuro);
+    border-radius: var(--cardRadius);
+    padding: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+
+.education h3 {
+    font-family: var(--fuenteCuerpo);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+    color: var(--textoClaro);
+}
+
+.education p {
+    font-size: 0.85rem;
+    color: var(--textoClaro);
+}
+
+#skills {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-y-cel) var(--padding-x-cel);
+    gap: 24px;
+}
+
+.skillsIzq {
+    width: 100%;
+}
+
+.skillsIzq h2 {
+    font-family: var(--fuente1);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--violetaOscuro);
+    margin-bottom: 16px;
+}
+
+.skillsGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 100%;
+}
+
+.skillLogo {
+    width: 38px;
+    height: 38px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.skillLogo:hover {
+    transform: scale(1.1);
+}
+
+.skillsDer {
     flex: 1;
-    aspect-ratio: 1;
-    background-color: var(--blanco);
-    border-radius: var(--radius-card);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.cardsCurso {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 148px;   /* muestra 2 cards, el resto con scroll */
+    overflow-y: auto;
+    padding-right: 4px;
+    scrollbar-width: thin;
+    scrollbar-color: var(--azulOscuro) var(--fondo);
+}
+
+.cardsCurso::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cardsCurso::-webkit-scrollbar-track {
+    background: var(--fondo);
+    border-radius: 10px;
+}
+
+.cardsCurso::-webkit-scrollbar-thumb {
+    background-color: var(--azulOscuro);
+    border-radius: 10px;
+}
+
+.cardCurso {
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    box-shadow: var(--shadow-card);
+    gap: 10px;
+    background-color: var(--celesteClaro);
+    border-radius: var(--cardRadius);
+    padding: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+    flex-shrink: 0;
+}
+
+.cardCurso .cursoLogo {
+    width: 34px;
+    height: 34px;
+    object-fit: contain;
+}
+
+.cardCurso h3 {
+    font-family: var(--fuente1);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--texto);
+}
+
+.courses-title {
+    font-family: var(--fuente1);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--violetaClaro);
+    text-align: right;
+    letter-spacing: 0.05em;
+}
+
+@media (min-width: 600px) {
+    .textoFondo {
+        font-size: 15vw;
+        white-space: nowrap;
+        word-break: normal;
+        width: auto;
+        line-height: 1;
+    }
+}
+
+@media (min-width: 640px) {
+    #skills {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    .skillsIzq {
+        width: auto;
+        flex: 1;
+    }
+}
+
+#projects {
+    padding: var(--padding-y-cel) var(--padding-x-cel);
+    background-color: var(--azulOscuro);
+}
+
+#projects h2 {
+    font-family: var(--fuente1);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--blanco);
+    text-align: center;
+    margin-bottom: 24px;
+    letter-spacing: 0.05em;
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.carousel-container {
+    flex: 1;
+    overflow: hidden;
+    border-radius: var(--cardRadius);
+}
+
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease;
+}
+
+.cardProyecto {
+    width: 100%;
+    flex-shrink: 0;
+    background-color: var(--fondo);
+    border-radius: var(--cardRadius);
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardProyecto img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 14px;
+}
+
+.cardProyecto h3 {
+    font-family: var(--fuente1);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--textoClaro);
+    margin-bottom: 10px;
+}
+
+.cardProyecto p {
+    font-size: 1rem;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex: 1;
+}
+
+.links {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--celesteFuerte);
+    border: 1px solid var(--celesteFuerte);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.links a:hover {
+    background-color: var(--celesteFuerte);
+    color: var(--blanco);
+}
+
+.carousel-btn {
+    background: none;
+    border: 2px solid var(--blanco);
+    color: var(--blanco);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s, color 0.2s;
+}
+
+.carousel-btn:hover {
+    background-color: var(--blanco);
+    color: var(--azulOscuro);
+}
+
+@media (min-width: 768px) {
+    .mancha-img { width: 170px; }
+    .manchaSeccion { font-size: 13px; }
+    .manchaSeccion:hover { font-size: 15px; }
+    .mancha-pos-1 { top: 30px; left: 30px; }
+    .mancha-pos-2 { top: 30px; right: 30px; }
+    .mancha-pos-3 { bottom: 30px; left: 30px; }
+    .mancha-pos-4 { bottom: 30px; right: 30px; }
+
+    .textoFondo { font-size: 20vw; }
+    .profile-img { height: 65vh; }
+    .education { padding: 22px; }
+    .education h3 { font-size: 0.95rem; }
+    .education p  { font-size: 0.95rem; }
+
+    #skills { gap: 32px; padding: var(--padding-y-pc) var(--padding-x-pc); }
+    .skillsIzq h2 { font-size: 2.4rem; margin-bottom: 22px; }
+    .skillsGrid { gap: 18px; }
+    .skillLogo { width: 52px; height: 52px; }
+    .skillsDer { gap: 20px; }
+    .cardsCurso { gap: 14px; max-height: 204px; }
+    .cardCurso { gap: 14px; padding: 16px; }
+    .cardCurso .cursoLogo { width: 44px; height: 44px; }
+    .cardCurso h3 { font-size: 0.9rem; }
+    .courses-title { font-size: 2.2rem; }
+
+   
+    #projects { padding: var(--padding-y-pc) var(--padding-x-pc); }
+    #projects h2 { font-size: 2.4rem; margin-bottom: 36px; }
+    .carousel-wrapper { gap: 20px; }
+    .carousel-btn { width: 48px; height: 48px; font-size: 1.2rem; }
+    .cardProyecto {
+        width: calc(50% - 10px);
+        flex-shrink: 0;
+    }
 }
 
 @media (min-width: 900px) {
@@ -187,60 +465,111 @@ img {
     .mancha-pos-2 { top: 20px;    right: 20px; }
     .mancha-pos-3 { bottom: 20px; left: 20px; }
     .mancha-pos-4 { bottom: 20px; right: 20px; }
-
     .manchaSeccion { font-size: 0.95rem; }
-
-    .textoCurvo {
-        width: 720px;
-        font-size: 88px;
-        letter-spacing: 10px;
-    }
-
+    .textoFondo { font-size: 22vw; }
     .profile-img { height: 86vh; }
 
     #aboutMe {
         flex-direction: row;
         align-items: center;
+        padding: var(--padding-y-pc) var(--padding-x-pc);
         gap: 48px;
     }
-
-    .aboutMeIzq h2 {
-        font-family: var(--fuente1);
-        font-size: 3.2rem;
-        margin-bottom: 22px;
-    }
-
-    .aboutMeIzq p { font-size: 1.1rem; }
-
-    .aboutMeDer { gap: 28px; }
-
-    .image-placeholder { font-size: 3.5rem; }
-}
-
-@media (min-width: 768px) {
-    .mancha-img { width: 170px; }
-    .manchaSeccion { font-size: 13px; }
-    .manchaSeccion:hover { font-size: 15px; }
-
-    .mancha-pos-1 { top: 30px; left: 30px; }
-    .mancha-pos-2 { top: 30px; right: 30px; }
-    .mancha-pos-3 { bottom: 30px; left: 30px; }
-    .mancha-pos-4 { bottom: 30px; right: 30px; }
-
-    .profile-img { height: 65vh; }
-    .textoCurvo { font-size: 55px; letter-spacing: 6px; }
+    .aboutMeIzq h2 { font-size: 3.2rem; margin-bottom: 22px; }
+    .aboutMeIzq p  { font-size: 1.1rem; }
+    .aboutMeDer    { gap: 28px; }
 }
 
 @media (min-width: 1200px) {
     .mancha-img { width: 240px; }
     .manchaSeccion { font-size: 16px; }
     .manchaSeccion:hover { font-size: 19px; }
-
     .mancha-pos-1 { top: 50px; left: 50px; }
     .mancha-pos-2 { top: 50px; right: 50px; }
     .mancha-pos-3 { bottom: 50px; left: 50px; }
     .mancha-pos-4 { bottom: 50px; right: 50px; }
 
     .profile-img { height: 80vh; }
-    .textoCurvo { font-size: 85px; letter-spacing: 10px; }
+
+    .education { padding: 28px; }
+    .education h3 { font-size: 1rem; }
+    .education p  { font-size: 1rem; }
+
+    #skills { gap: 48px; }
+    .skillsIzq h2 { font-size: 3.2rem; margin-bottom: 32px; }
+    .skillsGrid { gap: 24px; }
+    .skillLogo { width: 68px; height: 68px; }
+    .skillsDer { gap: 28px; }
+    .cardsCurso { gap: 18px; max-height: 258px; }
+    .cardCurso { gap: 18px; padding: 20px; }
+    .cardCurso .cursoLogo { width: 54px; height: 54px; }
+    .cardCurso h3 { font-size: 1rem; }
+    .courses-title { font-size: 3.2rem; }
+
+    #projects h2 { font-size: 3.2rem; margin-bottom: 50px; }
+    .carousel-wrapper { gap: 24px; }
+}
+
+#contact {
+    background-color: var(--colorFooter);
+    padding: var(--padding-y-cel) var(--padding-x-cel);
+}
+
+.contContacto {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+.contactoIzq {
+    width: 100%;
+}
+
+.titulo {
+    font-family: var(--fuente1);
+    font-size: 11vw;
+    font-weight: 800;
+    color: var(--violetaClaro);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+}
+
+.contactoDer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contactoDer p {
+    font-size: 0.9rem;
+    color: var(--textoClaro);
+    font-family: var(--fuenteCuerpo);
+}
+
+.contactoDer a{
+    color: var(--textoClaro);
+}
+
+@media (min-width: 620px) {
+    .contContacto {
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+    }
+    .contactoIzq { flex: 7; width: auto; }
+    .contactoDer  { flex: 3; gap: 12px; }
+    .titulo       { font-size: 7.5vw; }
+    .contactoDer p { font-size: 1rem; }
+}
+
+@media (min-width: 900px) {
+    #contact { padding: var(--padding-y-pc) var(--padding-x-pc); }
+    .contactoDer p { font-size: 1.1rem; }
+    .contContacto  { gap: 32px; }
+}
+
+@media (min-width: 1200px) {
+    .titulo { font-size: 8.5vw; }
 }
