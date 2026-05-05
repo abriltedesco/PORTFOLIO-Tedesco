@@ -1,0 +1,246 @@
+:root {
+    --fondo: #f5f0eb;
+    --azulOscuro: #1a1a2e;
+    --violetaClaro: #9b7fc7;
+    --violetaOscuro: #6b4f8a;
+    --celesteClaro: #8fcfdf;
+    --celesteFuerte: #2a8fa8;
+    --blanco: #ffffff;
+    --texto: #2c2c3e;
+    --textoClaro: #555570;
+
+    --fuente1: 'Syne', sans-serif;
+    --fuenteCuerpo: 'DM Sans', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--fuenteCuerpo);
+    background-color: var(--fondo);
+    color: var(--texto);
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+#home {
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    background-color: #000;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mancha-item {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10; /* para q vaya x encima */
+    cursor: pointer;
+}
+
+.mancha-img {
+   width: 120px;
+    transition: transform 0.3s ease;
+}
+
+.mancha-item:hover .mancha-img {
+    transform: scale(1.06);
+}
+
+.manchaSeccion {
+    position: absolute;
+    color: var(--azulOscuro);
+    font-weight: 800;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-align: center;
+    z-index: 11;
+    text-decoration: none;
+}
+
+.manchaSeccion:hover{
+    font-size: 12px;
+}
+
+.mancha-pos-1 { top: 15px; left: 15px; }
+.mancha-pos-2 { top: 15px; right: 15px; }
+.mancha-pos-3 { bottom: 15px; left: 15px; }
+.mancha-pos-4 { bottom: 15px; right: 15px; }
+
+.contPerfil {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 5;
+}
+
+.textoCurvo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    width: 85vw;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.textoCurvo-svg {
+    width: 100%;
+    overflow: visible;
+}
+
+.textoCurvo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    pointer-events: none;
+    z-index: 2;
+    font-size: 36px; /* Tamaño fijo en vez de vw */
+    font-weight: 800;
+    color: var(--blanco);
+    letter-spacing: 2px;
+}
+
+.profile-img {
+    display: block;
+    height: 50vh;
+    width: auto;
+    object-fit: cover;
+    object-position: top;
+    max-width: none;
+    position: relative;
+    z-index: 3;
+}
+
+#aboutMe {
+    display: flex;
+    flex-direction: column;
+    padding: var(--padding-y) var(--padding-x);
+    gap: 20px;
+    background-color: var(--fondo);
+}
+
+.aboutMeIzq {
+    flex: 1;
+}
+
+.aboutMeIzq h2 {
+    font-family: var(--fuente1);
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--azulOscuro);
+    margin-bottom: 10px;
+}
+
+.aboutMeIzq p {
+    font-size: 0.9rem;
+    line-height: 1.75;
+    color: var(--textoClaro);
+}
+
+.aboutMeDer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.image-placeholder {
+    flex: 1;
+    aspect-ratio: 1;
+    background-color: var(--blanco);
+    border-radius: var(--radius-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: var(--shadow-card);
+}
+
+@media (min-width: 900px) {
+    .mancha-pos-1 { top: 20px;    left: 20px; }
+    .mancha-pos-2 { top: 20px;    right: 20px; }
+    .mancha-pos-3 { bottom: 20px; left: 20px; }
+    .mancha-pos-4 { bottom: 20px; right: 20px; }
+
+    .manchaSeccion { font-size: 0.95rem; }
+
+    .textoCurvo {
+        width: 720px;
+        font-size: 88px;
+        letter-spacing: 10px;
+    }
+
+    .profile-img { height: 86vh; }
+
+    #aboutMe {
+        flex-direction: row;
+        align-items: center;
+        gap: 48px;
+    }
+
+    .aboutMeIzq h2 {
+        font-family: var(--fuente1);
+        font-size: 3.2rem;
+        margin-bottom: 22px;
+    }
+
+    .aboutMeIzq p { font-size: 1.1rem; }
+
+    .aboutMeDer { gap: 28px; }
+
+    .image-placeholder { font-size: 3.5rem; }
+}
+
+@media (min-width: 768px) {
+    .mancha-img { width: 170px; }
+    .manchaSeccion { font-size: 13px; }
+    .manchaSeccion:hover { font-size: 15px; }
+
+    .mancha-pos-1 { top: 30px; left: 30px; }
+    .mancha-pos-2 { top: 30px; right: 30px; }
+    .mancha-pos-3 { bottom: 30px; left: 30px; }
+    .mancha-pos-4 { bottom: 30px; right: 30px; }
+
+    .profile-img { height: 65vh; }
+    .textoCurvo { font-size: 55px; letter-spacing: 6px; }
+}
+
+@media (min-width: 1200px) {
+    .mancha-img { width: 240px; }
+    .manchaSeccion { font-size: 16px; }
+    .manchaSeccion:hover { font-size: 19px; }
+
+    .mancha-pos-1 { top: 50px; left: 50px; }
+    .mancha-pos-2 { top: 50px; right: 50px; }
+    .mancha-pos-3 { bottom: 50px; left: 50px; }
+    .mancha-pos-4 { bottom: 50px; right: 50px; }
+
+    .profile-img { height: 80vh; }
+    .textoCurvo { font-size: 85px; letter-spacing: 10px; }
+}
