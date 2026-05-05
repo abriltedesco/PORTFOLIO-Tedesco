@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aby's Portfolio </title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <section id="home">
+        <div class="headerManchas">
+            <a href="#about" class="mancha mancha-1">About me</a>
+            <a href="#projects" class="mancha mancha-2">Projects</a>
+            <a href="#contact" class="mancha mancha-3">Contact</a>
+        </div>
+        
+        <div class="contPerfil">
+            <img src="mi-foto.jpg" alt="foto personal" class="profile-img">
+        </div>
+    </section>
+
+    <section id="aboutMe">
+        <div class="aboutMeIzq">
+            <h2>ABOUT ME!</h2>
+            <p> Soy Abril Tedesco, una estudiante apasionada por el desarrollo y diseño web. 
+                Me encanta la creatividad visual y seguir aprendiendo nuevas tecnologías. 
+                Busco oportunidades para comenzar a crecer profesionalmente. 
+                Me considero una persona responsable, proactiva y disciplinada, con comunicación efectiva y habilidades para el trabajo en equipo.
+            </p>
+        </div>
+        <div class="aboutMeDer">
+            <div class="aboutMeImgs">
+                <div class="image-placeholder clapper">🎬</div>
+                <div class="image-placeholder music">🎵</div>
+            </div>
+            <div class="education">
+                <h3>EDUCATION</h3>
+                <p>Instituto Politecnico Modelo (2021-2026)</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="separador">
+    </div>
+
+    <section id="skills">
+        <div class="skillsIzq">
+            <h2>SKILLS</h2>
+            <div class="skillsGrid">
+                <img class="skillLogo" src="imgs/logos/sql.png" alt="SQL Logo">
+                <img class="skillLogo" src="imgs/logos/java.png" alt="Java Logo">
+                <img class="skillLogo" src="imgs/logos/python.png" alt="Python Logo">
+                <img class="skillLogo" src="imgs/logos/figma.png" alt="Figma Logo">
+                <img class="skillLogo" src="imgs/logos/framer.png" alt="Framer Logo">
+                <img class="skillLogo" src="imgs/logos/css.png" alt="CSS Logo">
+                <img class="skillLogo" src="imgs/logos/html.png" alt="HTML Logo">
+            </div>
+        </div>
+        <div class="skillsDer">
+            <div class="cardsCurso">
+                <div class="cardCurso">
+                    <img class="skillLogo" src="imgs/cursos/java.png" alt="Java Curso">
+                    <h1>Oracle Java</h1>
+                </div>
+                <div class="cardCurso">
+                    <img class="skillLogo" src="imgs/cursos/cpp.png" alt="C++ Curso">
+                    <h1>Cisco C++ </h1>
+                </div>
+                <div class="cardCurso">
+                    <img class="skillLogo" src="imgs/cursos/ds.png" alt="Data Science Curso">
+                    <h1>Cisco Data Science</h1>
+                </div>
+            </div>
+            <h2 class="courses-title">CURSOS</h2>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>PROYECTOS</h2>
+        
+        <div class="carousel-wrapper">
+            <button id="btn-prev" class="carousel-btn">&#10094;</button>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="carousel-track">
+                    
+                    <div class="cardProyecto">
+                        <img src="imgs/projects/dht.png" alt="DHT">
+                        <h3>DHT streetwear</h3>
+                        <p>Página web de marca de ropa urbana ficticia. Branding, Diseño  UI/UX y desarollo web.  
+                        Mockups y wireframes en Framer. Desarollo con Springboot.</p>
+                        <a href="#">Link al proyecto</a>
+                    </div>
+
+                    <div class="cardProyecto">
+                        <img src="imgs/projects/alambique.png" alt="Alambique">
+                        <h3>Teatro "El Alambique"</h3>
+                        <p>Rebranding y Diseño  UI/UX. Mockups y wireframes en Figma</p>
+                        <a href="#">Link al proyecto</a>
+                    </div>
+
+                    <div class="cardProyecto">
+                       <img src="imgs/projects/.png" alt="">
+                        <h3>Armonia Belleza</h3>
+                        <p>Rebranding y diseño realizado en Figma y Affinity para cosmetología particular</p>
+                        <a href="#">Link al proyecto</a>
+                    </div>
+
+                </div>
+            </div>
+            
+            <button id="btn-next" class="carousel-btn">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contContacto">
+            <div class="contactoIzq">
+                <h1 class="huge-title">CONTACT</h1>
+            </div>
+            <div class="contactoDer">
+                <p>abrilmtedesco@gmail.com</p>
+                <p>+54 9 11 xxxx-xxxx</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
