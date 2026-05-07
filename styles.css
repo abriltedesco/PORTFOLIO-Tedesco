@@ -152,6 +152,16 @@ img {
     padding: 80px var(--padding-x-cel);
     gap: 32px;
     background-image: var(--fondoImg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#aboutMe, #projects {
+    background-image: var(--fondoImg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .aboutMeIzq {
@@ -225,7 +235,7 @@ img {
     width: 100%;
     background-color: var(--celesteClaro);
     border-radius: var(--cardRadius);
-    padding: 70px 20px 28px;
+    padding: 30px 20px 28px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -334,8 +344,8 @@ img {
 }
 
 .cardCurso .cursoLogo {
-    width: 72px;
-    height: 72px;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 
@@ -351,14 +361,13 @@ img {
 /* ── proyectos ─────────────────────────────────────────────────────────────── */
 #projects {
     padding: var(--padding-y-cel) var(--padding-x-cel);
-    background-color: var(--fondo);
 }
 
 #projects h2 {
     font-family: var(--fuente1);
     font-size: 1.8rem;
     font-weight: 800;
-    color: var(--celesteClaro);
+    color: var(--celesteFuerte);
     text-align: center;
     margin-bottom: 24px;
     letter-spacing: 0.05em;
@@ -441,8 +450,8 @@ img {
 
 .carousel-btn {
     background: none;
-    border: 2px solid var(--blanco);
-    color: var(--blanco);
+    border: 2px solid var(--violeta);
+    color: var(--violeta);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -453,18 +462,44 @@ img {
 }
 
 .carousel-btn:hover {
-    background-color: var(--blanco);
-    color: var(--violeta);
+    background-color: var(--violeta);
+    color: var(--blanco);
 }
 
 /* ── media queries ─────────────────────────────────────────────────────────── */
+@media (min-width: 620px) {
+    .aboutMeIzq p { font-size: 1.25rem; }
+    .contContacto {
+        flex-direction: row;
+        gap: 24px;
+    }
+    .contactoIzq { flex: 7; width: auto; }
+    .contactoDer  { flex: 3; gap: 10px; }
+    .titulo       { font-size: 7vw; }
+    .contactoDer p { font-size: 1rem; }
+}
+
+@media (min-width: 900px) {
+    #contact { padding: var(--padding-y-pc) var(--padding-x-pc); }
+    .contactoDer p { font-size: 1.1rem; }
+    .contContacto  { gap: 32px; }
+}
+
+@media (min-width: 1200px) {
+    .titulo { font-size: 5.5vw; }
+}
+
 @media (min-width: 768px) {
     #aboutMe {
-        flex-direction: row;
+        flex-direction: column;
         align-items: flex-start;
         gap: 50px;
         min-height: 100svh;
         padding: 80px var(--padding-x-pc);
+    }
+
+    #aboutMe{
+        align-items: center;
     }
 
     .aboutMeIzq {
@@ -473,6 +508,7 @@ img {
     }
 
     .aboutMeDer {
+        width: 100%;
         flex: 1;
         display: flex;
         flex-direction: column;
@@ -490,7 +526,7 @@ img {
 
     .education {
         width: 100%;
-        padding-top: 80px;
+        padding-top: 40px;
     }
 
     .mancha-img { width: 200px; }
@@ -507,7 +543,7 @@ img {
     #skills { flex-direction: column; padding: var(--padding-y-pc) 0; }
 
     .cardsCurso { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-    .cardCurso .cursoLogo { width: 90px; height: 90px; }
+    .cardCurso .cursoLogo { width: 200px; height: 90px; }
     .cardCurso { padding: 48px 16px 36px; gap: 20px; }
     .courses-title { font-size: 2.2rem; padding: 0 var(--padding-x-pc); }
     .skills h2 { font-size: 2.2rem; padding: 0 var(--padding-x-pc); }
@@ -521,6 +557,11 @@ img {
         width: calc(50% - 10px);
         flex-shrink: 0;
     }
+
+    .contContacto { flex-direction: row;  align-items: center;  justify-content: space-between;  gap: 24px;  }
+    .contactoIzq {  flex: 1;  width: auto;  }
+    .contactoDer { flex: 1; align-items: flex-end;   text-align: right;   gap: 10px;  }
+    
 }
 
 @media (min-width: 900px) {
@@ -532,15 +573,16 @@ img {
     .textoFondo { font-size: 22vw; }
     .profile-img { height: 86vh; }
 
-    #aboutMe {
-        flex-direction: row;
-        align-items: center;
-        padding: 100px var(--padding-x-pc);
-        gap: 48px;
-    }
-    .aboutMeIzq h2 { font-size: 3.2rem; margin-bottom: 22px; }
-    .aboutMeIzq p  { font-size: 1.1rem; }
+    #aboutMe { flex-direction: row;  align-items: center;  padding: 100px ; gap: 48px; }
+    .cardCurso .cursoLogo { width: 400px; height: 120px; }
+    .cardCurso h3 { font-size: 0.9rem; }
+    .aboutMeIzq h2 { font-size: 3rem; margin-bottom: 22px; }
+    .aboutMeIzq p  { font-size: 1.3rem; }
+    .education h3 { font-size: 0.9rem; }
+    .education h5 { font-size: 1.2rem; }
+    .education p  { font-size: 0.95rem; }
     .aboutMeDer    { gap: 0; }
+    .aboutMeImgs { width: 280px; }
 }
 
 @media (min-width: 1200px) {
@@ -554,8 +596,13 @@ img {
 
     .profile-img { height: 80vh; }
 
-    .education { padding: 80px 28px 40px; }
+    .education { padding: 40px 28px 40px; }
+    .education h3 { font-size: 0.9rem; }
+    .education h5 { font-size: 1.2rem; }
+    .education p  { font-size: 0.95rem; }
 
+    .aboutMeIzq h2 { font-size: 4rem; margin-bottom: 22px; }
+    .aboutMeIzq p  { font-size: 1.5rem; }
     #skills { gap: 48px; }
     .cardsCurso { gap: 10px; }
     .cardCurso .cursoLogo { width: 200px; height: 200px; }
@@ -587,7 +634,7 @@ img {
 
 .titulo {
     font-family: var(--fuente1);
-    font-size: 7.5vw;
+    font-size: 9vw;
     font-weight: 800;
     color: var(--violetaClaro);
     line-height: 1;
@@ -602,7 +649,7 @@ img {
 }
 
 .contactoDer p {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: var(--textoClaro);
     font-family: var(--fuenteCuerpo);
 }
@@ -611,28 +658,25 @@ img {
     color: var(--textoClaro);
 }
 
-
-@media (min-width: 620px) {
-    .aboutMeIzq p { font-size: 1.25rem; }
+@media (min-width: 768px) {
     .contContacto {
         flex-direction: row;
         align-items: center;
+        justify-content: space-between;
         gap: 24px;
     }
-    .contactoIzq { flex: 7; width: auto; }
-    .contactoDer  { flex: 3; gap: 12px; }
-    .titulo       { font-size: 6vw; }
-    .contactoDer p { font-size: 1rem; }
-}
 
-@media (min-width: 900px) {
-    #contact { padding: var(--padding-y-pc) var(--padding-x-pc); }
-    .contactoDer p { font-size: 1.1rem; }
-    .contContacto  { gap: 32px; }
-}
+    .contactoIzq {
+        flex: 6;
+        width: auto;
+    }
 
-@media (min-width: 1200px) {
-    .titulo { font-size: 7.5vw; }
+    .contactoDer {
+        flex: 4;
+        align-items: flex-end;
+        text-align: right;
+        gap: 10px;
+    }
 }
 
 /* ── animaciones ───────────────────────────────────────────────────────────── */
