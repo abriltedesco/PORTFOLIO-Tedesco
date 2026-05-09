@@ -74,6 +74,7 @@ function iniciarAnimaciones() {
     const typewriterEls = [
         document.querySelector("#aboutMe h2"),
         document.querySelector(".courses-title"),
+        document.querySelector(".skills-title"),
         document.querySelector(".skillsIzq h2"),
     ].filter(Boolean);
 

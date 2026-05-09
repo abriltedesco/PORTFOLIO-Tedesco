@@ -217,9 +217,9 @@ img {
 
 .hobbiesHover {
     position: absolute;
-    top: 0;
+    top: 0.5;
     left: 0;
-    width: 100%;
+    width: 120%;
     border-radius: var(--cardRadius);
     opacity: 0;
     visibility: hidden;
@@ -315,6 +315,7 @@ img {
 }
 
 .courses-title {
+    width: 100%;
     font-family: var(--fuente1);
     font-size: 1.6rem;
     font-weight: 800;
@@ -394,10 +395,10 @@ img {
 .cardProyecto {
     width: 100%;
     flex-shrink: 0;
-    background-color: var(--violeta);
+    background-color: var(--celesteClaro);
     border-radius: var(--cardRadius);
+    border: 2px solid var(--celesteFuerte);
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -408,7 +409,8 @@ img {
     aspect-ratio: 16 / 9;
     height: auto;
     object-fit: cover;
-    border-radius: 12px;
+    border-radius: var(--cardRadius);
+    border: 2px solid var(--celesteFuerte);
     margin-bottom: 14px;
 }
 
@@ -416,13 +418,13 @@ img {
     font-family: var(--fuente1);
     font-size: 1.3rem;
     font-weight: 700;
-    color: var(--textoClaro);
+    color: var(--texto);
     margin-bottom: 10px;
 }
 
 .cardProyecto p {
     font-size: 1rem;
-    color: var(--blanco);
+    color: var(--texto);
     line-height: 1.6;
     margin-bottom: 16px;
     flex: 1;
@@ -450,8 +452,8 @@ img {
 
 .carousel-btn {
     background: none;
-    border: 2px solid var(--violeta);
-    color: var(--violeta);
+    border: 2px solid var(--celesteFuerte);
+    color: var(--celesteFuerte);
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -462,158 +464,10 @@ img {
 }
 
 .carousel-btn:hover {
-    background-color: var(--violeta);
+    background-color: var(--celesteFuerte);
     color: var(--blanco);
 }
 
-/* ── media queries ─────────────────────────────────────────────────────────── */
-@media (min-width: 620px) {
-    .aboutMeIzq p { font-size: 1.25rem; }
-    .contContacto {
-        flex-direction: row;
-        gap: 24px;
-    }
-    .contactoIzq { flex: 7; width: auto; }
-    .contactoDer  { flex: 3; gap: 10px; }
-    .titulo       { font-size: 7vw; }
-    .contactoDer p { font-size: 1rem; }
-}
-
-@media (min-width: 900px) {
-    #contact { padding: var(--padding-y-pc) var(--padding-x-pc); }
-    .contactoDer p { font-size: 1.1rem; }
-    .contContacto  { gap: 32px; }
-}
-
-@media (min-width: 1200px) {
-    .titulo { font-size: 5.5vw; }
-}
-
-@media (min-width: 768px) {
-    #aboutMe {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 50px;
-        min-height: 100svh;
-        padding: 80px var(--padding-x-pc);
-    }
-
-    #aboutMe{
-        align-items: center;
-    }
-
-    .aboutMeIzq {
-        flex: 0 0 60%; /* no crece, no encoge, base 60% */
-        padding-right: 0;
-    }
-
-    .aboutMeDer {
-        width: 100%;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0;
-    }
-
-    .aboutMeImgs {
-        width: 180px;
-        align-self: flex-end;
-        margin-left: auto;
-        margin-right: 0;
-        margin-bottom: -70px;
-    }
-
-    .education {
-        width: 100%;
-        padding-top: 40px;
-    }
-
-    .mancha-img { width: 200px; }
-    .manchaSeccion { font-size: 14px; }
-    .manchaSeccion:hover { font-size: 16px; }
-    .mancha-pos-1 { top: 30px; left: 30px; }
-    .mancha-pos-2 { top: 30px; right: 30px; }
-    .mancha-pos-3 { bottom: 30px; left: 30px; }
-    .mancha-pos-4 { bottom: 30px; right: 30px; }
-
-    .textoFondo { font-size: 20vw; }
-    .profile-img { height: 65vh; }
-
-    #skills { flex-direction: column; padding: var(--padding-y-pc) 0; }
-
-    .cardsCurso { grid-template-columns: repeat(4, 1fr); gap: 8px; }
-    .cardCurso .cursoLogo { width: 200px; height: 90px; }
-    .cardCurso { padding: 48px 16px 36px; gap: 20px; }
-    .courses-title { font-size: 2.2rem; padding: 0 var(--padding-x-pc); }
-    .skills h2 { font-size: 2.2rem; padding: 0 var(--padding-x-pc); }
-    .rolloConSkills { height: 160px; }
-
-    #projects { padding: var(--padding-y-pc) var(--padding-x-pc); }
-    #projects h2 { font-size: 2.4rem; margin-bottom: 36px; }
-    .carousel-wrapper { gap: 20px; }
-    .carousel-btn { width: 48px; height: 48px; font-size: 1.2rem; }
-    .cardProyecto {
-        width: calc(50% - 10px);
-        flex-shrink: 0;
-    }
-
-    .contContacto { flex-direction: row;  align-items: center;  justify-content: space-between;  gap: 24px;  }
-    .contactoIzq {  flex: 1;  width: auto;  }
-    .contactoDer { flex: 1; align-items: flex-end;   text-align: right;   gap: 10px;  }
-    
-}
-
-@media (min-width: 900px) {
-    .mancha-pos-1 { top: 20px;    left: 20px; }
-    .mancha-pos-2 { top: 20px;    right: 20px; }
-    .mancha-pos-3 { bottom: 20px; left: 20px; }
-    .mancha-pos-4 { bottom: 20px; right: 20px; }
-    .manchaSeccion { font-size: 0.95rem; }
-    .textoFondo { font-size: 22vw; }
-    .profile-img { height: 86vh; }
-
-    #aboutMe { flex-direction: row;  align-items: center;  padding: 100px ; gap: 48px; }
-    .cardCurso .cursoLogo { width: 400px; height: 120px; }
-    .cardCurso h3 { font-size: 0.9rem; }
-    .aboutMeIzq h2 { font-size: 3rem; margin-bottom: 22px; }
-    .aboutMeIzq p  { font-size: 1.3rem; }
-    .education h3 { font-size: 0.9rem; }
-    .education h5 { font-size: 1.2rem; }
-    .education p  { font-size: 0.95rem; }
-    .aboutMeDer    { gap: 0; }
-    .aboutMeImgs { width: 280px; }
-}
-
-@media (min-width: 1200px) {
-    .mancha-img { width: 280px; }
-    .manchaSeccion { font-size: 18px; }
-    .manchaSeccion:hover { font-size: 22px; }
-    .mancha-pos-1 { top: 50px; left: 50px; }
-    .mancha-pos-2 { top: 50px; right: 50px; }
-    .mancha-pos-3 { bottom: 50px; left: 50px; }
-    .mancha-pos-4 { bottom: 50px; right: 50px; }
-
-    .profile-img { height: 80vh; }
-
-    .education { padding: 40px 28px 40px; }
-    .education h3 { font-size: 0.9rem; }
-    .education h5 { font-size: 1.2rem; }
-    .education p  { font-size: 0.95rem; }
-
-    .aboutMeIzq h2 { font-size: 4rem; margin-bottom: 22px; }
-    .aboutMeIzq p  { font-size: 1.5rem; }
-    #skills { gap: 48px; }
-    .cardsCurso { gap: 10px; }
-    .cardCurso .cursoLogo { width: 200px; height: 200px; }
-    .cardCurso h3 { font-size: 0.88rem; }
-    .courses-title { font-size: 3.2rem; padding: 0 var(--padding-x-pc); }
-    .skills h2 { font-size: 3.2rem; padding: 0 var(--padding-x-pc); }
-    .rolloConSkills { height: 200px; }
-
-    #projects h2 { font-size: 3.2rem; margin-bottom: 50px; }
-    .carousel-wrapper { gap: 24px; }
-}
 
 /* ── contacto ──────────────────────────────────────────────────────────────── */
 #contact {
@@ -658,25 +512,128 @@ img {
     color: var(--textoClaro);
 }
 
-@media (min-width: 768px) {
+
+/* ── media queries ─────────────────────────────────────────────────────────── */
+@media (min-width: 620px) {
+    .aboutMeIzq p { font-size: 1.25rem; }
     .contContacto {
         flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
         gap: 24px;
     }
+    .contactoIzq { flex: 7; width: auto; }
+    .contactoDer  { flex: 3; gap: 10px; }
+    .titulo       { font-size: 5vw; }
+    .contactoDer p { font-size: 1rem; }
+}
 
-    .contactoIzq {
-        flex: 6;
-        width: auto;
-    }
+@media (min-width: 900px) {
+    #contact { padding: var(--padding-y-pc) var(--padding-x-pc); }
+    .contactoDer p { font-size: 1.1rem; }
+    .contContacto  { gap: 32px; }
+}
 
-    .contactoDer {
-        flex: 4;
-        align-items: flex-end;
-        text-align: right;
-        gap: 10px;
-    }
+
+@media (min-width: 768px) {
+    #aboutMe {  flex-direction: column;  align-items: flex-start;   gap: 50px;  min-height: 100svh;  padding: 80px var(--padding-x-pc); align-items: center; }
+    .aboutMeIzq {  flex: 0 0 60%; /* no crece, no encoge, base 60% */   padding-right: 0;  }
+    .aboutMeDer {  width: 100%; flex: 1;  display: flex;  flex-direction: column; align-items: flex-start;  gap: 0;   }
+    .aboutMeImgs { width: 180px;   align-self: flex-end;  margin-left: auto;   margin-right: 0; margin-bottom: -70px;  }
+
+    .education {  width: 100%; padding-top: 40px;  }
+
+    .mancha-img { width: 200px; }
+    .manchaSeccion { font-size: 14px; }
+    .manchaSeccion:hover { font-size: 16px; }
+    .mancha-pos-1 { top: 30px; left: 30px; }
+    .mancha-pos-2 { top: 30px; right: 30px; }
+    .mancha-pos-3 { bottom: 30px; left: 30px; }
+    .mancha-pos-4 { bottom: 30px; right: 30px; }
+
+    .textoFondo { font-size: 20vw; }
+    .profile-img { height: 65vh; }
+
+    #skills { flex-direction: column; padding: var(--padding-y-pc) 0; }
+
+    .cardsCurso { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+    .cardCurso .cursoLogo { width: 200px; height: 90px; }
+    .cardCurso { padding: 48px 16px 36px; gap: 20px; }
+    .cardCurso h3 { font-size: 0.82rem; }
+    .courses-title { font-size: 2.2rem; padding: 0 var(--padding-x-pc); }
+    .skills h2 { font-size: 2.2rem; padding: 0 var(--padding-x-pc); }
+    .rolloConSkills { height: 160px; }
+
+    #projects { padding: var(--padding-y-pc) var(--padding-x-pc); }
+    #projects h2 { font-size: 2.4rem; margin-bottom: 36px; }
+    .carousel-wrapper { gap: 20px; }
+    .carousel-btn { width: 48px; height: 48px; font-size: 1.2rem; }
+    .cardProyecto {  width: calc(50% - 10px);   flex-shrink: 0;  }
+
+    .contContacto {  flex-direction: row;   align-items: center; justify-content: space-between;  gap: 24px; }
+    .contactoIzq {  flex: 8;  width: auto;}
+    .contactoDer { flex: 2; align-items: flex-end; text-align: right; gap: 10px;  }
+    .titulo { font-size: 6.5vw; }
+}
+
+
+
+@media (min-width: 900px) {
+    .mancha-pos-1 { top: 20px;    left: 20px; }
+    .mancha-pos-2 { top: 20px;    right: 20px; }
+    .mancha-pos-3 { bottom: 20px; left: 20px; }
+    .mancha-pos-4 { bottom: 20px; right: 20px; }
+    .manchaSeccion { font-size: 0.95rem; }
+    .textoFondo { font-size: 22vw; }
+    .profile-img { height: 86vh; }
+
+    .cardCurso .cursoLogo { width: 400px; height: 120px; }
+    .cardCurso h3 { font-size: 0.9rem; }
+
+    #aboutMe { flex-direction: row;  align-items: center;  padding: 100px ; gap: 48px; }
+    .aboutMeIzq h2 { font-size: 3rem; margin-bottom: 22px; }
+    .aboutMeIzq p  { font-size: 1.3rem; }
+    .aboutMeDer    { gap: 0; }
+    .aboutMeImgs { width: 280px; }
+
+    .education h3 { font-size: 0.9rem; }
+    .education h5 { font-size: 1.2rem; }
+    .education p  { font-size: 0.95rem; }
+
+    #projects {  padding: 150px 100px ;}
+
+    .titulo { font-size: 7vw; }
+}
+
+@media (min-width: 1200px) {
+    .mancha-img { width: 280px; }
+    .manchaSeccion { font-size: 18px; }
+    .manchaSeccion:hover { font-size: 22px; }
+    .mancha-pos-1 { top: 50px; left: 50px; }
+    .mancha-pos-2 { top: 50px; right: 50px; }
+    .mancha-pos-3 { bottom: 50px; left: 50px; }
+    .mancha-pos-4 { bottom: 50px; right: 50px; }
+
+    .profile-img { height: 80vh; }
+
+    .education { padding: 40px 28px 40px; }
+    .education h3 { font-size: 0.9rem; }
+    .education h5 { font-size: 1.2rem; }
+    .education p  { font-size: 0.95rem; }
+
+    .aboutMeIzq h2 { font-size: 4rem; margin-bottom: 22px; }
+    .aboutMeIzq p  { font-size: 1.5rem; }
+    #skills { gap: 100px;  margin-top:55px;  margin-bottom: 55px; }
+    .cardsCurso { gap: 10px; }
+    .cardCurso .cursoLogo { width: 200px; height: 200px; }
+    .cardCurso h3 { font-size: 1.4rem; }
+    .cardCurso p { font-size: 1rem; }
+    .links a { font-size: 0.9rem; }
+    .courses-title { font-size: 3.2rem; padding: 0 var(--padding-x-pc); }
+    .skills h2 { font-size: 3.2rem; padding: 0 var(--padding-x-pc); }
+    .rolloConSkills { height: 200px; }
+
+    #projects h2 { font-size: 3.2rem; margin-bottom: 50px; }
+    .carousel-wrapper { gap: 24px; }
+     .titulo { font-size: 7.5vw; }
 }
 
 /* ── animaciones ───────────────────────────────────────────────────────────── */
