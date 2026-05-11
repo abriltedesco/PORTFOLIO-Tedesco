@@ -514,6 +514,14 @@ img {
 
 
 /* ── media queries ─────────────────────────────────────────────────────────── */
+@media (max-width: 499px) {
+    .profile-img {
+        height: 42svh;
+        width: auto;
+        max-width: 72vw;
+    }
+}
+
 @media (min-width: 620px) {
     .aboutMeIzq p { font-size: 1.25rem; }
     .contContacto {
